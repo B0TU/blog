@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Activity;
 use Illuminate\Http\Request;
 
+
 class ActivityLogsController extends Controller
 {
     public function __construct()

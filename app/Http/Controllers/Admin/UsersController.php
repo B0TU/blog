@@ -9,6 +9,7 @@ use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use App\Services\UserService;
 
+
 class UsersController extends Controller
 {
     public function __construct()

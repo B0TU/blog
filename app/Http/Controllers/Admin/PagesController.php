@@ -9,6 +9,7 @@ use App\Http\Requests\PageRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rules\Enum;
 
+
 class pagesController extends Controller
 {
     public function __construct()
