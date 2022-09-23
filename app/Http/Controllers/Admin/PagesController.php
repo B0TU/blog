@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rules\Enum;
 
 
-class pagesController extends Controller
+class PagesController extends Controller
 {
     public function __construct()
     {

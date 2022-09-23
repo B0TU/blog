@@ -3,6 +3,7 @@
 
 @section('content')
 
+
         <!-- Content -->
         <div class="basis-2/3 p-4">
 

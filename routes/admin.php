@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\admin\ActivityLogsController;
-use App\Http\Controllers\Admin\CategoriesController;
-use App\Http\Controllers\Admin\pagesController;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\Admin\ActivityLogsController;
+use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\PostsController;
 use App\Http\Controllers\Admin\RolesController;
-use App\Http\Controllers\admin\UsersController;
+use App\Http\Controllers\Admin\UsersController;
 
 Route::group([
     'middleware' => 'auth'
