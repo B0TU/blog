@@ -9,10 +9,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $posts = Post::query()
+        $posts = Post::with(['author','category'])
                     ->approved()
                     ->orderBy('published_at', 'desc')
-                    ->paginate(2);
+                    ->paginate();
 
         return view('web.home.index', compact('posts'));
     }

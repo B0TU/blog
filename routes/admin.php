@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\ActivityLogsController;
 use App\Http\Controllers\Admin\CategoriesController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\PostsController;
 use App\Http\Controllers\Admin\RolesController;
@@ -17,7 +18,8 @@ Route::group([
         return to_route('admin.dashboard');
     });
 
-    Route::view('dashboard', 'admin.dashboard.index')->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    //Route::view('dashboard', 'admin.dashboard.index')->name('dashboard');
 
     Route::resources([
         'posts'      => PostsController::class,

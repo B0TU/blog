@@ -28,12 +28,12 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer([
-            // 'web.partials.header',
+             'web.partials.header',
             // 'web.partials.footer',
         ], TopNavComposer::class);
 
         View::composer('web.partials.sidebar', CategoriesComposer::class);
-        View::composer('layouts.web', TitleComposer::class);
+        //View::composer('layouts.web', TitleComposer::class);
 
     }
 }

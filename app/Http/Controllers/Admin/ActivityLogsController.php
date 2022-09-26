@@ -16,7 +16,10 @@ class ActivityLogsController extends Controller
 
     public function index(Request $request)
     {
-        $activities = Activity::query();
+        // $activities = Activity::select('id','description','subject_type','created_at');
+        // $activities = Activity::query();
+        $activities = Activity::with(['subject','causer']);
+
         
         $activities->when($request->get('search'), function ($query, $search){
             $query->search($search);
