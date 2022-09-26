@@ -7,7 +7,11 @@
         <!-- Content -->
         <div class="basis-2/3 p-4">
 
-            <div class="mb-5 bg-red-600 text-white p-3 animate-pulse">
+            <div class="mb-4 font-bold rounded-lg bg-green-200 text-green-500 py-2 px-4">
+                <a href="{{ route('admin.dashboard') }}">Go to Dashboard</a>
+            </div>
+
+            <div class="mb-5 rounded-lg bg-red-500 text-white p-3 animate-pulse">
                 <p>Something new is coming up...</p>
             </div>
 

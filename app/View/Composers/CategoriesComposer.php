@@ -10,7 +10,7 @@ class CategoriesComposer
 {
     public function categories()
     {
-        return Category::withCount([ 
+        return Category::select(['name','slug','color'])->withCount([ 
             'posts' => function ($query) {
                 $query->approved();
             }
