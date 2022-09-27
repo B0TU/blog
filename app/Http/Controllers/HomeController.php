@@ -12,7 +12,7 @@ class HomeController extends Controller
         $posts = Post::with(['author','category'])
                     ->approved()
                     ->orderBy('published_at', 'desc')
-                    ->paginate();
+                    ->paginate(5);
 
         return view('web.home.index', compact('posts'));
     }

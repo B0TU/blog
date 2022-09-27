@@ -55,6 +55,7 @@
 
                         <div class="flex flex-row mt-4 space-x-4">
                             <x-button>Filter</x-button>
+                            <x-admin.link-button type="light" link="{{ route('admin.dashboard') }}"> Clear </x-admin.link-button>
                         </div>
 
                     </form>
