@@ -12,9 +12,9 @@ class UsersSeeder extends Seeder
 
     protected $users = [
         [
-            'name'      => 'Nu-umaan Mohamed',
-            'email'     => 'numaan@gmail.com',
-            'password'  => 'numaandemode',
+            'name'      => 'Administrator',
+            'email'     => 'admin@gmail.com',
+            'password'  => 'admin123',
             'state'     => 'approved'
         ]
     ];

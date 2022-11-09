@@ -6,17 +6,25 @@ use Carbon\Carbon;
 use App\Models\Post;
 use App\Models\Activity;
 use App\Models\Category;
+use App\Models\Page;
+use App\Models\User;
+use Spatie\Permission\Models\Role;
+
 use Illuminate\Http\Request;
 
 class ChartService {
 
-    public function posts(Request $request)
+    public function __construct(Request $request)
     {
-        $filterDate = $request->get('year');
-        $year = $filterDate ?? date("Y");
+        $this->year = $request->get('year') ?? date('Y');
+    }
+
+
+    public function posts()
+    {
 
         return Post::selectRaw('DATE_FORMAT(created_at, "%m") as month, DATE_FORMAT(created_at, "%Y") as year, count(*) as count')
-            ->whereYear('created_at', $year)
+            ->whereYear('created_at', $this->year)
             ->groupBy('month', 'year')
             ->orderBy('year', 'asc')
             ->orderBy('month', 'asc')
@@ -28,14 +36,11 @@ class ChartService {
         });
     }
 
-    public function categories(Request $request)
+    public function categories()
     {
-        
-        $filterDate = $request->get('year');
-        $year = $filterDate ?? date("Y");
 
         return Category::selectRaw('DATE_FORMAT(created_at, "%m") as month, DATE_FORMAT(created_at, "%Y") as year, count(*) as count')
-            ->whereYear('created_at', $year)
+            ->whereYear('created_at', $this->year)
             ->groupBy('month', 'year')
             ->orderBy('year', 'asc')
             ->orderBy('month', 'asc')
@@ -47,14 +52,59 @@ class ChartService {
         });
     }
 
-    public function logs(Request $request)
+    public function roles()
     {
         
-        $filterDate = $request->get('year');
-        $year = $filterDate ?? date("Y");
+        return Role::selectRaw('DATE_FORMAT(created_at, "%m") as month, DATE_FORMAT(created_at, "%Y") as year, count(*) as count')
+            ->whereYear('created_at', $this->year)
+            ->groupBy('month', 'year')
+            ->orderBy('year', 'asc')
+            ->orderBy('month', 'asc')
+            ->get()->map(function ($item) {
+                return [
+                    'month' => Carbon::createFromFormat('m', $item->month)->format('F'),
+                    'count' => $item->count
+                ];
+        });
+    }
+
+    public function users()
+    {
+
+        return User::selectRaw('DATE_FORMAT(created_at, "%m") as month, DATE_FORMAT(created_at, "%Y") as year, count(*) as count')
+            ->whereYear('created_at', $this->year)
+            ->groupBy('month', 'year')
+            ->orderBy('year', 'asc')
+            ->orderBy('month', 'asc')
+            ->get()->map(function ($item) {
+                return [
+                    'month' => Carbon::createFromFormat('m', $item->month)->format('F'),
+                    'count' => $item->count
+                ];
+        });
+    }
+
+    public function pages()
+    {
+        
+        return Page::selectRaw('DATE_FORMAT(created_at, "%m") as month, DATE_FORMAT(created_at, "%Y") as year, count(*) as count')
+            ->whereYear('created_at', $this->year)
+            ->groupBy('month', 'year')
+            ->orderBy('year', 'asc')
+            ->orderBy('month', 'asc')
+            ->get()->map(function ($item) {
+                return [
+                    'month' => Carbon::createFromFormat('m', $item->month)->format('F'),
+                    'count' => $item->count
+                ];
+        });
+    }
+
+    public function logs()
+    {
 
         return Activity::selectRaw('DATE_FORMAT(created_at, "%m") as month, DATE_FORMAT(created_at, "%Y") as year, count(*) as count')
-            ->whereYear('created_at', $year)
+            ->whereYear('created_at', $this->year)
             ->groupBy('month', 'year')
             ->orderBy('year', 'asc')
             ->orderBy('month', 'asc')
@@ -72,6 +122,10 @@ class ChartService {
             ->groupBy('year')
             ->orderBy('year', 'desc')
             ->get();
+
+            return [
+                '2022'
+            ];
     }
 
 }
