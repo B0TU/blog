@@ -6,7 +6,7 @@ Follow the below installation instruction.
 ```
 git clone https://github.com/B0TU/blog.git
 ```
-2. Create your database
+2. Copy .env.example and rename it to .env after then add you datbase credentials to .env file
 3. Now update composer packages
 ```
 composer update
