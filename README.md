@@ -6,8 +6,8 @@ Follow the below installation instruction.
 ```
 git clone https://github.com/B0TU/blog.git
 ```
-2. Copy .env.example and rename it to .env after then add you datbase credentials to .env file
-3. Now update composer packages
+2. Copy .env.example and rename it to .env after then add your database credentials to .env file
+3. Update composer
 ```
 composer update
 ````
@@ -15,10 +15,13 @@ composer update
 ```
 php artisan migrate --seed
 ```
-5. Now serve the project locally
+5. Serve the project
 ```
-php artisan serve --port 5000
+php artisan serve
 ```
-Now visit http://127.0.0.1:5000
+Now visit http://127.0.0.1:8000
+
+If you have laragon installed and running with auto virtual host on with Hostname "{name}.test" you can visit http://blog.test
+
 
 Enjoy!
