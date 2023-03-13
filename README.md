@@ -6,11 +6,11 @@ Follow the below installation instruction.
 ```
 git clone https://github.com/B0TU/blog.git
 ```
-2. Copy .env.example and rename it to .env after then add your database credentials to .env file
-3. Update composer
+2. Update composer
 ```
 composer update
 ````
+3. Copy .env.example and rename it to .env after then add your database credentials to .env file
 4. Run database migration and database seeder
 ```
 php artisan migrate --seed
