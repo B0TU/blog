@@ -12,7 +12,14 @@ cd blog
 composer update
 ````
 3. Copy .env.example and rename it to .env after then add your database credentials to .env file
-4. Run database migration and database seeder
+```
+cp .env.example .env
+```
+And For Windows
+```
+copy .env.example .env
+```
+5. Run database migration and database seeder
 ```
 php artisan migrate --seed
 ```
