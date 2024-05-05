@@ -8,6 +8,7 @@ git clone https://github.com/B0TU/blog.git
 ```
 2. Update composer
 ```
+cd blog
 composer update
 ````
 3. Copy .env.example and rename it to .env after then add your database credentials to .env file
@@ -17,6 +18,7 @@ php artisan migrate --seed
 ```
 5. Serve the project
 ```
+php artisan key:generate
 php artisan serve
 ```
 Now visit http://127.0.0.1:8000
