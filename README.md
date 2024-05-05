@@ -6,10 +6,11 @@ Follow the below installation instruction.
 ```
 git clone https://github.com/B0TU/blog.git
 ```
-2. Update composer
+2. Update composer | Run node install
 ```
 cd blog
 composer update
+npm install
 ````
 3. Copy .env.example and rename it to .env after then add your database credentials to .env file
 ```
